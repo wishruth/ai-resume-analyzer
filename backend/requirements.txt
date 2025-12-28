@@ -1,8 +1,8 @@
-fastapi==0.127.0
-uvicorn==0.40.0
-python-multipart==0.0.21
-pdfplumber==0.11.8
-sentence-transformers==5.2.0
-scikit-learn==1.8.0
-pydantic==2.12.5
+fastapi
+uvicorn
+python-multipart
+pdfplumber
+sentence-transformers
+scikit-learn
+pydantic
 torch --index-url https://download.pytorch.org/whl/cpu
