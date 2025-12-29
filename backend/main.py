@@ -4,6 +4,7 @@ from sentence_transformers import SentenceTransformer, util
 import pdfplumber 
 import io
 import re
+import gc
 import torch
 from pydantic import BaseModel
 
@@ -12,6 +13,9 @@ class AnalyzeRequest(BaseModel):
     jd_text: str
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
+model.eval()
+torch.set_grad_enabled(False)
+gc.collect()
 
 app = FastAPI()
 
