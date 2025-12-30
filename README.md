@@ -54,9 +54,15 @@ Dynamic Chips: Visual green/red "Skill Chips" for immediate clarity on what you 
 ## NLP Engine Details
 -------------------
 The core intelligence of this application relies on Sentence Embeddings rather than simple keyword matching. This allows the system to understand that a resume mentioning "Expertise in developing RESTful services" is a strong match for a job description requiring "Backend API development experience."
-- **Vector Embeddings**(all-MiniLM-L6-v2): We utilize the Sentence-Transformers framework to convert raw text into high-dimensional vectors (384 dimensions).Model: all-MiniLM-L6-v2Why this model?: It is specifically optimized for semantic search and sentence similarity, providing a perfect balance between speed (low latency for local execution) and accuracy.
-- **Semantic Similarity Calculation**: Instead of counting word frequency, we calculate the Cosine Similarity between the resume vector ($u$) and the job description vector ($v$).The similarity score is determined by:$$\text{similarity} = \cos(\theta) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}$$Score of 1.0: Perfect semantic alignment.Score of 0.0: No contextual relationship.
-- **Skill Extraction Pipeline**: The backend executes a multi-stage pipeline:Text Normalization: Stripping noise from PDFs using pdfplumber.Tokenization: Breaking text into manageable semantic units.Keyword Intersection: Cross-referencing extracted tokens against our TECH_SKILLS_DB using high-performance Python sets for $O(1)$ lookup time.
+- **Vector Embeddings**(all-MiniLM-L6-v2): We utilize the Sentence-Transformers framework to convert raw text into high-dimensional vectors (384 dimensions).Model: all-MiniLM-L6-v2
+- Why this model?: It is specifically optimized for semantic search and sentence similarity, providing a perfect balance between speed (low latency for local execution) and accuracy.
+- **Semantic Similarity Calculation**: Instead of counting word frequency, we calculate the Cosine Similarity between the resume vector ($u$) and the job description vector ($v$).
+- The similarity score is determined by $$\text{similarity} = \cos(\theta) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}$$Score of 1.0
+- Perfect semantic alignment.Score of 0.0: No contextual relationship.
+- **Skill Extraction Pipeline**: The backend executes a multi-stage pipeline:
+- Text Normalization: Stripping noise from PDFs using pdfplumber
+- Tokenization: Breaking text into manageable semantic units
+- Keyword Intersection: Cross-referencing extracted tokens against our TECH_SKILLS_DB using high-performance Python sets for $O(1)$ lookup time.
 
 🛠️ Tech Stack
 ---------------------
