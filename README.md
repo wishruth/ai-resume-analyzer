@@ -106,10 +106,10 @@ ai-resume-matcher/
 📸 Screenshots & Demo
 ---------------------
 1. The Dashboard
-[Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshots/dashboard.png)
 
 2. Match Results & Skill Gap
-[ResumeMatchResult](./screenshots/ResumeMatchResult.png)
+![ResumeMatchResult](./screenshots/ResumeMatchResult.png)
 
 Installation & Setup
 --------------------
